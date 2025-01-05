@@ -19,11 +19,6 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 - **Character Quotes**: "Experience famous quotes from each character."
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
-
-## View Live Preview
-[**here**](https://uchiha-website.netlify.app/)
-
-=======
 ## View Live Preview [**here**](https://uchiha-website.netlify.app/)
 ---
 
