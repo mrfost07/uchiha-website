@@ -1,4 +1,4 @@
-# Uchiha Interactive Experience
+# Uchiha Website
 
 Welcome to the Uchiha Interactive Experience! This website allows you to explore the world of Uchiha Itachi, Sasuke, and Madara through an interactive and visually appealing interface.
 
