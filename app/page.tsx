@@ -9,25 +9,52 @@ import Navigation from './components/Navigation'
 const characters = [
   { name: 'Itachi', path: '/itachi' },
   { name: 'Sasuke', path: '/sasuke' },
-  { name: 'Madara', path: '/madara' }
+  { name: 'Madara', path: '/madara' },
 ]
 
-export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+// Helper hook to detect client-side rendering
+const useIsClient = () => {
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  return isClient
+}
+
+export default function Home() {
+  const isClient = useIsClient()
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [particles, setParticles] = useState<{ x: number; y: number }[]>([])
+
+  useEffect(() => {
+    // Handle mouse movement
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+
+    // Generate particle positions on mount
+    const generatedParticles = Array.from({ length: 20 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+    }))
+    setParticles(generatedParticles)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
+
+  // Prevent rendering during server-side rendering
+  if (!isClient) return null
 
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
       <Navigation />
-      
+
       {/* Background Image with Parallax Effect */}
       <div className="relative h-screen">
         <motion.div
@@ -50,19 +77,17 @@ export default function Home() {
 
         {/* Glowing Particles Effect */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {particles.map((particle, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-red-500 rounded-full"
+              initial={{
+                x: particle.x,
+                y: particle.y,
+              }}
               animate={{
-                x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                ],
-                y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                ],
+                x: [particle.x, Math.random() * window.innerWidth],
+                y: [particle.y, Math.random() * window.innerHeight],
                 opacity: [0, 1, 0],
               }}
               transition={{
@@ -91,7 +116,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
             className="flex flex-col md:flex-row gap-8 items-center"
           >
-            {characters.map((character, index) => (
+            {characters.map((character) => (
               <motion.div
                 key={character.name}
                 whileHover={{ scale: 1.1 }}
@@ -111,4 +136,3 @@ export default function Home() {
     </main>
   )
 }
-

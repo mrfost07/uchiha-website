@@ -1,6 +1,6 @@
 {
   "/page": "app/page.js",
   "/itachi/page": "app/itachi/page.js",
-  "/madara/page": "app/madara/page.js",
-  "/sasuke/page": "app/sasuke/page.js"
+  "/sasuke/page": "app/sasuke/page.js",
+  "/madara/page": "app/madara/page.js"
 }
