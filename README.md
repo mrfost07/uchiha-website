@@ -31,7 +31,7 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 ### Installation
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/yourusername/uchiha-website.git
+   git clone https://github.com/mrfost07/uchiha-website.git
    ```
 
 2. Navigate to the project directory:  
