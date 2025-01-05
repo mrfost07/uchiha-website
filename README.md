@@ -8,7 +8,7 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 ## Itachi Page
 ![Itachi Page](public/screenshots/itachi.png)
 
-## Sasuke Page
+## Sasuke Page 
 ![Sasuke Page](public/screenshots/sasuke.png)
 
 ## Madara Page
