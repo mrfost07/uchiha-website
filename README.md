@@ -1,4 +1,4 @@
-# Uchiha Interactive Experience
+# Uchiha Website
 
 Welcome to the Uchiha Interactive Experience! This website allows you to explore the world of Uchiha Itachi, Sasuke, and Madara through an interactive and visually appealing interface.
 
@@ -8,7 +8,7 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 ## Itachi Page
 ![Itachi Page](public/screenshots/itachi.png)
 
-## Sasuke Page
+## Sasuke Page 
 ![Sasuke Page](public/screenshots/sasuke.png)
 
 ## Madara Page
@@ -19,9 +19,14 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 - **Character Quotes**: "Experience famous quotes from each character."
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
+<<<<<<< HEAD
 ## View Live Preview
 [**here**](https://uchiha-website.netlify.app/)
 
+=======
+## View Live Preview [**here**](https://uchiha-website.netlify.app/)
+---
+>>>>>>> master
 ## Getting Started
 
 ### Prerequisites
