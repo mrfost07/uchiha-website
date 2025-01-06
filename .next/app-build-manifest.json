@@ -1,40 +1,67 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/app/_not-found/page-1094121d36a0541e.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
-    "/itachi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/itachi/page.js"
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/css/b4c8fb450431bc19.css",
+      "static/chunks/app/layout-f81b93f8a19facaa.js"
     ],
     "/sasuke/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/sasuke/page.js"
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/sasuke/page-02e6a9ce9dd20362.js"
     ],
     "/madara/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/madara/page.js"
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/madara/page-9fea3e2ea1f8fb4d.js"
     ],
     "/obito/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/obito/page.js"
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/obito/page-bb39cf6b5f0d4afe.js"
     ],
     "/shisui/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/shisui/page.js"
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/shisui/page-319aa790493235bb.js"
+    ],
+    "/itachi/page": [
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/itachi/page-c443f4d1f40394a8.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-2b8ba4ce94ec4428.js",
+      "static/chunks/fd9d1056-91aa9495991b9c80.js",
+      "static/chunks/117-f7accbb5ee5ebd4d.js",
+      "static/chunks/main-app-879af5115d351817.js",
+      "static/chunks/500-0c1c8112b6028d35.js",
+      "static/chunks/app/page-0507f26231efbced.js"
     ]
   }
 }

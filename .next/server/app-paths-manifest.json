@@ -1,8 +1,9 @@
 {
-  "/itachi/page": "app/itachi/page.js",
-  "/obito/page": "app/obito/page.js",
-  "/madara/page": "app/madara/page.js",
-  "/shisui/page": "app/shisui/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/sasuke/page": "app/sasuke/page.js",
+  "/madara/page": "app/madara/page.js",
+  "/obito/page": "app/obito/page.js",
+  "/shisui/page": "app/shisui/page.js",
+  "/itachi/page": "app/itachi/page.js",
   "/page": "app/page.js"
 }
