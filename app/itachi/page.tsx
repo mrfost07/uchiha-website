@@ -13,7 +13,7 @@ const itachiImages = [
     quote: "Those who forgive themselves, and are able to accept their true nature... They are the strong ones!"
   },
   {
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1328396-F4XoCg0ceBwVC30ntPwxrnxU8S7A7I.png",
+    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Shisui_gives_his_eye-59wxT55jh7jsgER3ZcORx0h5IF45HT.webp",
     quote: "People live their lives bound by what they accept as correct and true."
   },
   {
