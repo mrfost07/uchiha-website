@@ -14,6 +14,12 @@ Welcome to the Uchiha Interactive Experience! This website allows you to explore
 ## Madara Page
 ![Madara Page](public/screenshots/madara.png)
 
+## Obito Page
+![Madara Page](public/screenshots/obito.png)
+
+## Shisui Page
+![Madara Page](public/screenshots/shisui.png)
+
 ## Features
 - **Character Showcase**: Explore different characters from the Uchiha clan.
 - **Character Quotes**: "Experience famous quotes from each character."

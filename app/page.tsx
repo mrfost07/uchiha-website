@@ -10,51 +10,41 @@ const characters = [
   { name: 'Itachi', path: '/itachi' },
   { name: 'Sasuke', path: '/sasuke' },
   { name: 'Madara', path: '/madara' },
+  { name: 'Obito', path: '/obito' },
+  { name: 'Shisui', path: '/shisui' }
 ]
 
-// Helper hook to detect client-side rendering
-const useIsClient = () => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  return isClient
-}
-
 export default function Home() {
-  const isClient = useIsClient()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [particles, setParticles] = useState<{ x: number; y: number }[]>([])
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
-    // Handle mouse movement
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    if (typeof window !== 'undefined') {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+      }
 
-    window.addEventListener('mousemove', handleMouseMove)
+      const updateWindowDimensions = () => {
+        setWindowDimensions({ width: window.innerWidth, height: window.innerHeight })
+      }
 
-    // Generate particle positions on mount
-    const generatedParticles = Array.from({ length: 20 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-    }))
-    setParticles(generatedParticles)
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('resize', updateWindowDimensions)
+      
+      // Set initial dimensions
+      updateWindowDimensions()
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove)
+        window.removeEventListener('resize', updateWindowDimensions)
+      }
     }
   }, [])
-
-  // Prevent rendering during server-side rendering
-  if (!isClient) return null
 
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
       <Navigation />
-
+      
       {/* Background Image with Parallax Effect */}
       <div className="relative h-screen">
         <motion.div
@@ -77,17 +67,19 @@ export default function Home() {
 
         {/* Glowing Particles Effect */}
         <div className="absolute inset-0 pointer-events-none">
-          {particles.map((particle, i) => (
+          {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-red-500 rounded-full"
-              initial={{
-                x: particle.x,
-                y: particle.y,
-              }}
               animate={{
-                x: [particle.x, Math.random() * window.innerWidth],
-                y: [particle.y, Math.random() * window.innerHeight],
+                x: [
+                  Math.random() * windowDimensions.width,
+                  Math.random() * windowDimensions.width,
+                ],
+                y: [
+                  Math.random() * windowDimensions.height,
+                  Math.random() * windowDimensions.height,
+                ],
                 opacity: [0, 1, 0],
               }}
               transition={{
@@ -114,9 +106,9 @@ export default function Home() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex flex-col md:flex-row gap-8 items-center"
+            className="flex flex-wrap justify-center gap-8 items-center px-4"
           >
-            {characters.map((character) => (
+            {characters.map((character, index) => (
               <motion.div
                 key={character.name}
                 whileHover={{ scale: 1.1 }}

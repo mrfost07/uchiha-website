@@ -12,7 +12,7 @@ export default function MadaraPage() {
     <main className="min-h-screen relative overflow-hidden bg-black">
       <ParticleBackground />
       <Navigation />
-      <MadaraCarousel />
+      <MadaraCarousel title="Uchiha Madara" />
     </main>
   )
 }

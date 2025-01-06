@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const cinzel = Cinzel({ subsets: ['latin'], variable: '--font-cinzel' })
 
 export const metadata = {
-  title: 'Uchiha - Website | Fostanes',
+  title: 'Uchiha Itachi - Interactive Experience',
   description: 'Explore the world of Uchiha Itachi in this interactive website',
 }
 
