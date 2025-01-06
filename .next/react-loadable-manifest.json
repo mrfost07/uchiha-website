@@ -11,8 +11,20 @@
       "static/chunks/_app-pages-browser_app_components_ParticleBackground_tsx.js"
     ]
   },
+  "app\\obito\\page.tsx -> ../components/ParticleBackground": {
+    "id": "app\\obito\\page.tsx -> ../components/ParticleBackground",
+    "files": [
+      "static/chunks/_app-pages-browser_app_components_ParticleBackground_tsx.js"
+    ]
+  },
   "app\\sasuke\\page.tsx -> ../components/ParticleBackground": {
     "id": "app\\sasuke\\page.tsx -> ../components/ParticleBackground",
+    "files": [
+      "static/chunks/_app-pages-browser_app_components_ParticleBackground_tsx.js"
+    ]
+  },
+  "app\\shisui\\page.tsx -> ../components/ParticleBackground": {
+    "id": "app\\shisui\\page.tsx -> ../components/ParticleBackground",
     "files": [
       "static/chunks/_app-pages-browser_app_components_ParticleBackground_tsx.js"
     ]

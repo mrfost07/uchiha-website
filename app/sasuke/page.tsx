@@ -12,7 +12,7 @@ export default function SasukePage() {
     <main className="min-h-screen relative overflow-hidden bg-black">
       <ParticleBackground />
       <Navigation />
-      <SasukeCarousel />
+      <SasukeCarousel title="Uchiha Sasuke" />
     </main>
   )
 }
