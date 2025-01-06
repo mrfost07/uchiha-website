@@ -2274,6 +2274,17 @@ module.exports = createProxy("C:\\Users\\fosta\\OneDrive\\Desktop\\Personal_Webs
 
 /***/ }),
 
+/***/ "(rsc)/./node_modules/next/dist/client/components/noop-head.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/next/dist/client/components/noop-head.js ***!
+  \***************************************************************/
+/***/ ((module, exports) => {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nObject.defineProperty(exports, \"default\", ({\n    enumerable: true,\n    get: function() {\n        return NoopHead;\n    }\n}));\nfunction NoopHead() {\n    return null;\n}\nif ((typeof exports.default === \"function\" || typeof exports.default === \"object\" && exports.default !== null) && typeof exports.default.__esModule === \"undefined\") {\n    Object.defineProperty(exports.default, \"__esModule\", {\n        value: true\n    });\n    Object.assign(exports.default, exports);\n    module.exports = exports.default;\n} //# sourceMappingURL=noop-head.js.map\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NsaWVudC9jb21wb25lbnRzL25vb3AtaGVhZC5qcyIsIm1hcHBpbmdzIjoiOzs7OzJDQUFBOzs7ZUFBd0JBOzs7QUFBVCxTQUFTQTtJQUN0QixPQUFPO0FBQ1QiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS12MC1wcm9qZWN0Ly4uLy4uLy4uL3NyYy9jbGllbnQvY29tcG9uZW50cy9ub29wLWhlYWQudHN4PzlkNTYiXSwibmFtZXMiOlsiTm9vcEhlYWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/client/components/noop-head.js\n");
+
+/***/ }),
+
 /***/ "(rsc)/./node_modules/next/dist/client/components/not-found-boundary.js":
 /*!************************************************************************!*\
   !*** ./node_modules/next/dist/client/components/not-found-boundary.js ***!
