@@ -8,6 +8,10 @@
   --background-end-rgb: 0, 0, 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -20,5 +24,27 @@ body {
 
 .font-cinzel {
   font-family: var(--font-cinzel), serif;
+}
+
+@keyframes fire {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 0.8; }
+  100% { transform: translateY(0) scale(1); opacity: 0.5; }
+}
+
+.animate-fire {
+  animation: fire 3s infinite;
+}
+
+/* Enhanced image styles */
+.enhanced-image {
+  filter: contrast(1.1) saturate(1.2);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
+}
+
+.enhanced-image:hover {
+  filter: contrast(1.2) saturate(1.3);
+  box-shadow: 0 0 60px rgba(255, 0, 0, 0.4);
 }
 

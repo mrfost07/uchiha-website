@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -9,6 +9,7 @@ interface CarouselProps {
   images: {
     url: string
     quote: string
+    voiceUrl: string
   }[]
   title: string
 }
@@ -16,6 +17,19 @@ interface CarouselProps {
 export default function ImageCarousel({ images, title }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
+  const voiceRef = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    voiceRef.current = new Audio(images[currentIndex].voiceUrl)
+    voiceRef.current.play().catch(error => console.log("Voice play failed:", error))
+
+    return () => {
+      if (voiceRef.current) {
+        voiceRef.current.pause()
+        voiceRef.current = null
+      }
+    }
+  }, [currentIndex, images])
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -38,6 +52,9 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
   }
 
   const paginate = (newDirection: number) => {
+    if (voiceRef.current) {
+      voiceRef.current.pause()
+    }
     setCurrentIndex((prevIndex) => {
       let newIndex = prevIndex + newDirection
       if (newIndex < 0) newIndex = images.length - 1
@@ -91,8 +108,9 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
               src={images[currentIndex].url}
               alt="Character"
               fill
-              className="object-cover object-center"
+              className="object-cover object-center enhanced-image"
               priority
+              quality={100}
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
@@ -103,7 +121,7 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
             transition={{ duration: 0.3 }}
             className="absolute bottom-20 left-0 right-0 text-center z-10 px-4"
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-cinzel">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-cinzel drop-shadow-lg">
               "{images[currentIndex].quote}"
             </p>
           </motion.div>
@@ -112,7 +130,7 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
 
       {/* Navigation Arrows with enhanced hover effects */}
       <motion.button
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 p-2 rounded-full hover:bg-red-500/50 transition-colors"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 p-2 rounded-full hover:bg-red-500/50 transition-colors shadow-lg"
         onClick={() => paginate(-1)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -120,7 +138,7 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
         <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
       </motion.button>
       <motion.button
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 p-2 rounded-full hover:bg-red-500/50 transition-colors"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 p-2 rounded-full hover:bg-red-500/50 transition-colors shadow-lg"
         onClick={() => paginate(1)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -137,7 +155,7 @@ export default function ImageCarousel({ images, title }: CarouselProps) {
               setDirection(index > currentIndex ? 1 : -1)
               setCurrentIndex(index)
             }}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all shadow-lg ${
               index === currentIndex ? 'bg-red-500 scale-125' : 'bg-white/50 hover:bg-white'
             }`}
             whileHover={{ scale: 1.2 }}

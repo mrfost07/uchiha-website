@@ -23,7 +23,7 @@ const images = [
     quote: "The village's safety is more important than my life. Protecting the village... That is what being a shinobi means."
   },
   {
-    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Shisui_gives_his_eye-59wxT55jh7jsgER3ZcORx0h5IF45HT.webp",
+    url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Shisui_gives_his_eye-krsTflVOhK91endc2ntrRTutGKHatv.webp",
     quote: "Even if my eyes lose their light, my spirit will never die. I will protect the village, and the Uchiha name!"
   }
 ]

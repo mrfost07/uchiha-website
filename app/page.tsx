@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Navigation from './components/Navigation'
+import FireText from './components/FireText'
 
 const characters = [
   { name: 'Itachi', path: '/itachi' },
@@ -16,28 +17,26 @@ const characters = [
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
+  const [particles, setParticles] = useState<{ x: number; y: number }[]>([])
 
+  // Track mouse position
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  // Generate particle positions on client-side
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const handleMouseMove = (e: MouseEvent) => {
-        setMousePosition({ x: e.clientX, y: e.clientY })
-      }
-
-      const updateWindowDimensions = () => {
-        setWindowDimensions({ width: window.innerWidth, height: window.innerHeight })
-      }
-
-      window.addEventListener('mousemove', handleMouseMove)
-      window.addEventListener('resize', updateWindowDimensions)
-      
-      // Set initial dimensions
-      updateWindowDimensions()
-
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove)
-        window.removeEventListener('resize', updateWindowDimensions)
-      }
+      const generatedParticles = Array.from({ length: 20 }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+      }))
+      setParticles(generatedParticles)
     }
   }, [])
 
@@ -59,27 +58,22 @@ export default function Home() {
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download%20(1).jpg-wpkry9i5A4aqqhHrKofbQfaxRtEBXG.jpeg"
             alt="Uchiha Clan"
             fill
-            className="object-cover opacity-80"
+            className="object-cover opacity-80 enhanced-image"
             priority
+            quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90" />
         </motion.div>
 
         {/* Glowing Particles Effect */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {particles.map((particle, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-red-500 rounded-full"
+              className="absolute w-2 h-2 bg-red-500 rounded-full shadow-lg shadow-red-500/50"
               animate={{
-                x: [
-                  Math.random() * windowDimensions.width,
-                  Math.random() * windowDimensions.width,
-                ],
-                y: [
-                  Math.random() * windowDimensions.height,
-                  Math.random() * windowDimensions.height,
-                ],
+                x: [particle.x, Math.random() * window.innerWidth],
+                y: [particle.y, Math.random() * window.innerHeight],
                 opacity: [0, 1, 0],
               }}
               transition={{
@@ -93,22 +87,21 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col items-center justify-center">
-          <motion.h1
+          <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-8xl font-cinzel text-white mb-12 tracking-wider"
           >
-            UCHIHA
-          </motion.h1>
+            <FireText>UCHIHA</FireText>
+          </motion.div>
 
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-8 items-center px-4"
+            className="flex flex-wrap justify-center gap-8 items-center px-4 mt-12"
           >
-            {characters.map((character, index) => (
+            {characters.map((character) => (
               <motion.div
                 key={character.name}
                 whileHover={{ scale: 1.1 }}
@@ -116,7 +109,7 @@ export default function Home() {
               >
                 <Link
                   href={character.path}
-                  className="text-2xl md:text-3xl font-cinzel text-white hover:text-red-500 transition-colors duration-300"
+                  className="text-2xl md:text-3xl font-cinzel bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent hover:from-orange-400 hover:to-red-600 transition-all duration-300 shadow-lg"
                 >
                   {character.name}
                 </Link>
